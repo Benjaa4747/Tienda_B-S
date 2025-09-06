@@ -285,61 +285,70 @@ footer {
 }
 
 /* =============================================== */
-/* ESTILOS PARA MÓVILES (Responsive Design)      */
+/* ESTILOS PARA RESPONSIVE DESIGN                */
 /* =============================================== */
 
+/* --- Para Tablets (y móviles anchos) --- */
 @media (max-width: 768px) {
 
-  /* 1. HEADER Y NAVEGACIÓN PRINCIPAL */
+  /* 1. HEADER Y NAVEGACIÓN */
   header {
     flex-direction: column;
     height: auto;
     padding: 20px 0;
   }
-
-  /* ¡AQUÍ ESTÁ EL CAMBIO PARA EL MENÚ PRINCIPAL! */
   header nav {
     margin-top: 20px;
     display: flex;
-    flex-direction: row;       /* Lo ponemos en fila */
-    flex-wrap: wrap;           /* Permite que los links bajen si no caben */
-    justify-content: center;   /* Centramos los links */
-    gap: 15px;                 /* Espacio entre cada link */
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
   }
-  
-  header nav a {
-    margin: 0; /* Quitamos el margen vertical que tenía antes */
-  }
-
-  /* 2. BOTONES DE USUARIO (esto ya estaba bien) */
+  header nav a { margin: 0; }
   header div {
     margin-top: 20px;
     display: flex;
-    flex-direction: row; 
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 15px;
   }
 
- /* 3. GALERÍA DE PRODUCTOS DE 2 COLUMNAS */
-
- .lista-productos {
+  /* 2. GALERÍA DE PRODUCTOS - 2 COLUMNAS */
+  .lista-productos {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px; /* Reducimos un poco el espacio para que quepa mejor */
-    padding: 0 10px; /* Añade un pequeño margen a los lados de la galería */
- }
+    grid-template-columns: repeat(2, 1fr); /* Mantenemos 2 columnas aquí */
+    gap: 15px;
+    padding: 0 15px;
+  }
 
-    /* ¡AQUÍ ESTÁ EL NUEVO AJUSTE MÁGICO! */
- .producto {
-    overflow: hidden; /* Esto asegura que nada se salga de la tarjeta */
-    text-align: center; /* Centra el texto debajo de la imagen */
- }
+  .producto {
+    overflow: hidden;
+    text-align: center;
+  }
+  .producto img {
+    max-width: 100%;
+    height: auto;
+  }
+}
 
- .producto img {
-    max-width: 100%; /* La imagen nunca será más ancha que su contenedor */
-    height: auto;    /* La altura se ajusta para mantener la proporción */
-    /* Nos aseguramos de que no haya alturas fijas aquí */
- }
+/* --- ¡AQUÍ ESTÁ LA NUEVA MAGIA! --- */
+/* --- Para Teléfonos (pantallas más angostas) --- */
+@media (max-width: 480px) {
 
+  /* GALERÍA DE PRODUCTOS - 1 COLUMNA */
+  .lista-productos {
+    grid-template-columns: 1fr; /* ¡Cambiamos a 1 SOLA COLUMNA! */
+    gap: 25px; /* Damos más espacio vertical entre productos */
+    padding: 0 20px; /* Un poco más de margen a los lados */
+  }
+
+  /* Opcional: Podemos achicar un poco el texto para que se vea mejor */
+  .producto h4 {
+    font-size: 1rem;
+  }
+  .producto p, .producto span {
+    font-size: 0.9rem;
+  }
 }
