@@ -283,3 +283,56 @@ footer {
     padding: 40px;
     text-align: center;
 }
+
+/* =============================================== */
+/* ESTILOS PARA MÓVILES (Responsive Design)      */
+/* =============================================== */
+
+@media (max-width: 768px) {
+
+  /* 1. HEADER Y NAVEGACIÓN PRINCIPAL */
+  header {
+    flex-direction: column;
+    height: auto;
+    padding: 20px 0;
+  }
+
+  /* ¡AQUÍ ESTÁ EL CAMBIO PARA EL MENÚ PRINCIPAL! */
+  header nav {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;       /* Lo ponemos en fila */
+    flex-wrap: wrap;           /* Permite que los links bajen si no caben */
+    justify-content: center;   /* Centramos los links */
+    gap: 15px;                 /* Espacio entre cada link */
+  }
+  
+  header nav a {
+    margin: 0; /* Quitamos el margen vertical que tenía antes */
+  }
+
+  /* 2. BOTONES DE USUARIO (esto ya estaba bien) */
+  header div {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row; 
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+  }
+
+  /* 3. GALERÍA DE PRODUCTOS DE 2 COLUMNAS */
+  .lista-productos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  /* ¡AQUÍ ESTÁ EL ARREGLO PARA LAS IMÁGENES CORTADAS! */
+  .producto img {
+    width: 100%;  /* La imagen ocupará el 100% del ancho de su columna */
+    height: auto; /* La altura se ajustará automáticamente para no deformar la imagen */
+    /* Eliminamos object-fit: cover; porque ya no es necesario */
+  }
+  
+}
