@@ -321,18 +321,25 @@ footer {
     gap: 15px;
   }
 
-  /* 3. GALERÍA DE PRODUCTOS DE 2 COLUMNAS */
-  .lista-productos {
+ /* 3. GALERÍA DE PRODUCTOS DE 2 COLUMNAS */
+
+ .lista-productos {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
+    gap: 10px; /* Reducimos un poco el espacio para que quepa mejor */
+    padding: 0 10px; /* Añade un pequeño margen a los lados de la galería */
+ }
 
-  /* ¡AQUÍ ESTÁ EL ARREGLO PARA LAS IMÁGENES CORTADAS! */
-  .producto img {
-    width: 100%;  /* La imagen ocupará el 100% del ancho de su columna */
-    height: auto; /* La altura se ajustará automáticamente para no deformar la imagen */
-    /* Eliminamos object-fit: cover; porque ya no es necesario */
-  }
-  
+    /* ¡AQUÍ ESTÁ EL NUEVO AJUSTE MÁGICO! */
+ .producto {
+    overflow: hidden; /* Esto asegura que nada se salga de la tarjeta */
+    text-align: center; /* Centra el texto debajo de la imagen */
+ }
+
+ .producto img {
+    max-width: 100%; /* La imagen nunca será más ancha que su contenedor */
+    height: auto;    /* La altura se ajusta para mantener la proporción */
+    /* Nos aseguramos de que no haya alturas fijas aquí */
+ }
+
 }
