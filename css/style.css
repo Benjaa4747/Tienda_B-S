@@ -96,10 +96,9 @@ header div a[href$="carrito.html"] {
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
-/* === ¡ESTA ES LA CORRECCIÓN CLAVE PARA LAS IMÁGENES! === */
 .producto img {
-    max-width: 100%; /* La imagen se ajusta al ancho de su contenedor */
-    height: auto;    /* La altura es automática para no deformar la imagen */
+    max-width: 100%;
+    height: auto;
     border-radius: 5px;
 }
 
@@ -276,10 +275,10 @@ footer {
 }
 
 /* =============================================== */
-/* === ¡ESTA ES LA SECCIÓN RESPONSIVE CORREGIDA! === */
+/* === ESTILOS RESPONSIVE PARA EL ESTILO "PIMPS" === */
 /* =============================================== */
 
-/* --- Para Tablets (y móviles anchos) --- */
+/* Para todas las pantallas de 768px hacia abajo (tablets y teléfonos) */
 @media (max-width: 768px) {
 
   /* 1. HEADER Y NAVEGACIÓN */
@@ -306,28 +305,16 @@ footer {
     gap: 15px;
   }
 
-  /* 2. GALERÍA DE PRODUCTOS - AHORA SERÁ GRID */
+  /* 2. GALERÍA DE PRODUCTOS - SIEMPRE 2 COLUMNAS EN MÓVIL */
   .lista-productos {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+    grid-template-columns: repeat(2, 1fr); /* ¡LA INSTRUCCIÓN CLAVE! */
     gap: 15px;
     padding: 0 15px;
   }
 
-  /* El producto ya no necesita un ancho fijo en móvil */
   .producto {
-    width: auto; 
+    width: auto; /* Dejamos que la cuadrícula controle el ancho */
     text-align: center;
-  }
-}
-
-/* --- Para Teléfonos (pantallas más angostas) --- */
-@media (max-width: 480px) {
-
-  /* GALERÍA DE PRODUCTOS - 1 COLUMNA */
-  .lista-productos {
-    grid-template-columns: 1fr; /* ¡Cambiamos a 1 SOLA COLUMNA! */
-    gap: 25px; 
-    padding: 0 20px;
   }
 }
